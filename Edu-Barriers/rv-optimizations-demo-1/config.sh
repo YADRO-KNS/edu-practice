@@ -3,6 +3,9 @@
 # Exit immediately on errors
 set -e
 
+# Print what is happening
+set -x
+
 JOBS=`nproc`
 CROSS_COMPILE=$PWD/output/toolchain/bin/riscv64-buildroot-linux-gnu-
 
