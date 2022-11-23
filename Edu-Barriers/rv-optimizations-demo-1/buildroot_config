@@ -2345,7 +2345,7 @@ BR2_PACKAGE_MONGREL2_LIBC_SUPPORTS=y
 #
 # setools needs python3
 #
-BR2_PACKAGE_URANDOM_SCRIPTS=y
+# BR2_PACKAGE_URANDOM_SCRIPTS is not set
 
 #
 # Shell and utilities
