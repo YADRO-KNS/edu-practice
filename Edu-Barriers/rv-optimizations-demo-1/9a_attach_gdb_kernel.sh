@@ -2,4 +2,4 @@
 
 . ./config.sh
 
-./output/toolchain/bin/riscv64-linux-gdb -ex 'target remote localhost:1234' --command ./debug.gdb
+cd linux; ../output/toolchain/bin/riscv64-linux-gdb --command ../kernel.gdb vmlinux
