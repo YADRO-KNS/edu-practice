@@ -1,6 +1,10 @@
 # sir052022
 Optimization demo
 
+* An "auto-load safe-path" should be set in ~/.gdbinit, either / of path to this directory:
+```
+set auto-load safe-path /
+```
 * Start qemu
 ```
 ./8_run.sh
