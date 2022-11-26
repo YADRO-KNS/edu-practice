@@ -13,6 +13,7 @@ cd linux; git checkout v6.0; cd ..
 git clone https://github.com/riscv-software-src/opensbi.git
 cd opensbi; git checkout v1.1; cd ..
 git clone https://github.com/qemu/qemu.git
+git clone https://github.com/hugsy/gef.git
 
 mkdir -p output
 mkdir -p $ROOTFS_OVERLAY
