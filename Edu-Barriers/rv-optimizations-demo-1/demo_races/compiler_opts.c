@@ -1,34 +1,10 @@
-#define _GNU_SOURCE
-#include <pthread.h>
+#include "common.h"
 #include <stdio.h>	// For printf
-#include <unistd.h>	// For usleep
 #include <stdbool.h>	// For bool
-#include <sched.h>	// For setaffinity
 #include <stdint.h>	// For uintptr_t
 #include <stdlib.h>	// For srand()+rand()
 
-#define READ_ONCE(x)	(*(const volatile typeof(x) *)&(x))
-
-#define WRITE_ONCE(x, val)				\
-	do {						\
-		*(volatile typeof(x) *)&(x) = (val);	\
-	} while (0)
-
-static void msleep(int msecs)
-{
-	usleep(msecs * 1000);
-}
-
 static bool ready;
-
-static void set_affinity(int cpu)
-{
-	cpu_set_t set;
-
-	CPU_ZERO(&set);
-	CPU_SET(cpu, &set);
-	sched_setaffinity(pthread_self(), sizeof(set), &set);
-}
 
 static void* p1(void *arg)
 {

@@ -1,30 +1,8 @@
-#define _GNU_SOURCE
-#include <pthread.h>
+#include "common.h"
 #include <stdio.h>	// For printf
-#include <unistd.h>	// For usleep
 #include <stdbool.h>	// For bool
-#include <sched.h>	// For setaffinity
 #include <stdint.h>	// For uintptr_t
 #include <stdlib.h>	// For srand()+rand()
-
-#define barrier()	asm volatile("" ::: "memory");
-
-#if defined(__x86_64__)
-#define mb()		asm volatile("mfence" ::: "memory");
-#elif defined(__riscv)
-#define mb()		asm volatile("fence rw,rw" ::: "memory");
-#else
-#error "Unknown arch!"
-#endif
-
-static void set_affinity(int cpu)
-{
-	cpu_set_t set;
-
-	CPU_ZERO(&set);
-	CPU_SET(cpu, &set);
-	sched_setaffinity(pthread_self(), sizeof(set), &set);
-}
 
 static volatile bool start, s0, s1;
 static volatile int X, Y, A, B;
