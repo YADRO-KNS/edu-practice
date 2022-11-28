@@ -29,7 +29,7 @@ static void set_affinity(int cpu)
 static volatile bool start, s0, s1;
 static volatile int X, Y, A, B;
 
-static void* p3(void *arg)
+static void* p1(void *arg)
 {
 	bool do_barriers = (uintptr_t)arg;
 
@@ -48,7 +48,7 @@ static void* p3(void *arg)
 	return NULL;
 }
 
-static void* p4(void *arg)
+static void* p2(void *arg)
 {
 	bool do_barriers = (uintptr_t)arg;
 
@@ -94,10 +94,10 @@ int loop(bool do_barriers)
 		s0 = false;
 		s1 = false;
 
-		pthread_create(&id1, &attr, &p3, (void*)do_barriers);
-		pthread_setname_np(id1, "p3");
-		pthread_create(&id2, &attr, &p4, (void*)do_barriers);
-		pthread_setname_np(id2, "p4");
+		pthread_create(&id1, &attr, &p1, (void*)do_barriers);
+		pthread_setname_np(id1, "p1");
+		pthread_create(&id2, &attr, &p2, (void*)do_barriers);
+		pthread_setname_np(id2, "p2");
 
 		while (!s0 || !s1)
 			;
