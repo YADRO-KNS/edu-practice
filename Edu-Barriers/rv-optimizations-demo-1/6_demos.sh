@@ -6,6 +6,8 @@ mkdir -p ${ROOTFS_OVERLAY}/opt
 
 ${CROSS_COMPILE}gcc -O2 -g demo_races/compiler_opts.c -o $ROOTFS_OVERLAY/opt/compiler_opts
 ${CROSS_COMPILE}gcc -O2 -g demo_races/cpu_opts.c -o $ROOTFS_OVERLAY/opt/cpu_opts
+${CROSS_COMPILE}gcc -O2 -g demo_races/icache.c -o $ROOTFS_OVERLAY/opt/icache
+
 cp --preserve=mode demo_races/gdbs.sh $ROOTFS_OVERLAY/opt
 
 #make ARCH=riscv CROSS_COMPILE=$CROSS_COMPILE -C linux M=$PWD/demo_races
