@@ -16,8 +16,16 @@
 
 #if defined(__x86_64__)
 #define mb()		asm volatile("mfence" ::: "memory");
+#define rmb()		asm volatile("lfence" ::: "memory");
+#define wmb()		asm volatile("sfence" ::: "memory");
 #elif defined(__riscv)
-#define mb()		asm volatile("fence rw,rw" ::: "memory");
+#define mb()		asm volatile("fence iorw,iorw" ::: "memory");
+#define rmb()		asm volatile("fence ir,ir" ::: "memory");
+#define wmb()		asm volatile("fence ow,ow" ::: "memory");
+#elif defined(__powerpc64__)
+#define mb()		asm volatile("sync" : : : "memory")
+#define rmb()		asm volatile("sync" : : : "memory")
+#define wmb()		asm volatile("sync" : : : "memory")
 #else
 #error "Unknown arch!"
 #endif
