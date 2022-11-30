@@ -12,6 +12,17 @@ sudo dnf install ncurses-devel perl-ExtUtils-MakeMaker ninja-build glib2-devel p
 # Ubuntu
 sudo apt install libncurses-dev libextutils-makemaker-cpanfile-perl ninja-build libglib2.0-dev libpixman-1-dev libslirp-dev
 ```
+* Build everything:
+```
+0_prereq.sh
+1_qemu.sh
+2_toolchain.sh
+3_linux_prepare.sh
+4_linux.sh
+5_opensbi.sh
+6_demos.sh
+7_rootfs.sh
+```
 * Start qemu
 ```
 ./8_run.sh
@@ -40,5 +51,8 @@ ctrl+A, X
 ```
 * Run on a local machine:
 ```
-gcc demo_races/cpu_opts.c -O2 && ./a.out
+% ./output/cpu_opts
+without barriers: !A!B    942, !AB     24, A!B     33, AB      0
+with barriers: !A!B      0, !AB      2, A!B      4, AB    993
+%
 ```
