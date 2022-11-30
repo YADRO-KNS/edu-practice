@@ -13,8 +13,8 @@ ${CROSS_COMPILE}gcc -O2 -g -fno-stack-protector demo_races/memset.c -o $ROOTFS_O
 
 cp --preserve=mode demo_races/gdbs.sh $ROOTFS_OVERLAY/opt
 
-gcc -O2 -g demo_races/icache.c -o output/icache
-gcc -O2 -g demo_races/cpu_opts.c -o output/cpu_opts
+gcc -O2 -g -pthread demo_races/icache.c -o output/icache
+gcc -O2 -g -pthread demo_races/cpu_opts.c -o output/cpu_opts
 
 #make ARCH=riscv CROSS_COMPILE=$CROSS_COMPILE -C linux M=$PWD/demo_races
 #cp demo_races/demo_races.ko $ROOTFS_OVERLAY/opt
