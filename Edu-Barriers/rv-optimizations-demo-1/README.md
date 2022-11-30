@@ -5,6 +5,13 @@ Optimization demo
 ```
 set auto-load safe-path /
 ```
+* Install libraries required for Qemu and Buildroot:
+```
+# Fedora
+sudo dnf install ncurses-devel perl-ExtUtils-MakeMaker ninja-build glib2-devel pixman-devel libslirp-devel
+# Ubuntu
+sudo apt install libncurses-dev libextutils-makemaker-cpanfile-perl ninja-build libglib2.0-dev libpixman-1-dev libslirp-dev
+```
 * Start qemu
 ```
 ./8_run.sh
