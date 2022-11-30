@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2022.08.1-191-g3a0993251b Configuration
+# Buildroot 2022.08.2-29-g73b001dd81 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -2781,6 +2781,7 @@ BR2_PACKAGE_HOST_UTIL_LINUX=y
 #
 # Legacy options removed in 2022.08
 #
+# BR2_PACKAGE_LIBOPENSSL_ENABLE_RC5 is not set
 # BR2_ECLIPSE_REGISTER is not set
 # BR2_csky is not set
 # BR2_PACKAGE_MESA3D_DRI_DRIVER_I915 is not set
