@@ -1,9 +1,9 @@
-# sir052022
+# Races and Barriers
 Optimization demo
 
-* An "auto-load safe-path" should be set in ~/.gdbinit, either / of path to this directory:
+* An "auto-load safe-path" should be set in ~/.gdbinit, either / or a path to this directory:
 ```
-set auto-load safe-path /
+echo "set auto-load safe-path /" >> ~/.gdbinit
 ```
 * Install libraries required for Qemu and Buildroot:
 ```
