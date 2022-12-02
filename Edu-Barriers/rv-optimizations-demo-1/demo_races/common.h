@@ -39,7 +39,4 @@ static void set_affinity(int cpu)
 	sched_setaffinity(pthread_self(), sizeof(set), &set);
 }
 
-static void msleep(int msecs)
-{
-	usleep(msecs * 1000);
-}
+#define msleep(msecs)	usleep((msecs) * 1000);
