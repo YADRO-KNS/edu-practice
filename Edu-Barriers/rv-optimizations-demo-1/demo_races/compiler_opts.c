@@ -15,7 +15,7 @@ static void* p1(void *arg)
 
 	msleep(2);
 
-	#if 0
+	#if 1
 	ready = true;
 	#else
 	WRITE_ONCE(ready, true);
@@ -27,16 +27,16 @@ static void* p1(void *arg)
 	return NULL;
 }
 
-void* p2(void *arg)
+static void* p2(void *arg)
 {
 	int cpu = (uintptr_t)arg;
 
 	printf("--> %s (cpu %d)\n", __func__, cpu);
 	set_affinity(cpu);
 
-	#if 0
+	#if 1
 	unsigned long long wait_cnt = 10;
-	while (ready2) {
+	while (!ready) {
 		msleep(100);
 		if (!--wait_cnt)
 			break;
